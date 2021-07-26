@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <v-app>
+        <Header :cnpj="cnpjResults" />
+        <v-main>
+            <router-view />
+        </v-main>
+    </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Header from "./components/shared/Header";
 
-#nav {
-  padding: 30px;
+export default {
+    name: "App",
+    components: {
+        Header,
+    },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    data() {
+        return {
+            cnpjResults: [],
+        };
+    },
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+    created() {
+        fetch("https://www.receitaws.com.br/v1/cnpj/09221413000170")
+            .then((response) => response.json())
+            .then((json) => {
+                this.cnpjResults = json;
+            });
+    },
+};
+</script>
+
+<style scoped></style>
