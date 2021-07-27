@@ -1,29 +1,21 @@
 <template>
     <v-card flat>
         <v-toolbar color="primary" dark extended flat>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <h1>
+                Consulta de CNPJ
+            </h1>
         </v-toolbar>
-        <SearchBar />
     </v-card>
 </template>
 
 <script>
-import SearchBar from "../SearchBar.vue";
-
 export default {
     name: "Header",
-
-    components: {
-        SearchBar,
-    },
-
-    props: {
-        cnpj: {
-            type: Array,
-            required: true,
-        },
-    },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+    font-size: 2rem;
+}
+</style>
