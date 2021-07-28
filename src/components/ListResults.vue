@@ -25,14 +25,9 @@
                 Atividades Secundárias: --
             </div>
 
-            <div class="my-4 text-subtitle-1 " v-if="cnpjData.qsa.nome_rep_legal">
-                Responsável legal: {{ cnpjData.qsa.nome_rep_legal }}
+            <div class="my-4 text-subtitle-1 " v-for="(socio, index) of cnpjData.qsa" :key="socio.nome">
+                Sócio {{ index + 1 }} : {{ socio.nome }} ({{ socio.qual }})
             </div>
-            <div class="my-4 text-subtitle-1 " v-else>
-                Responsável legal: --
-            </div>
-            <div class="my-4 text-subtitle-1 " v-if="cnpjData.qsa.nome">Sócios: {{ cnpjData.qsa.nome }}</div>
-            <div class="my-4 text-subtitle-1 " v-else>Sócios: --</div>
 
             <div class="my-4 text-subtitle-1 " v-if="cnpjData.situacao">Situação: {{ cnpjData.situacao }}</div>
             <div class="my-4 text-subtitle-1 " v-else>Situação: --</div>
@@ -67,7 +62,6 @@ export default {
 
     props: {
         cnpjData: {
-            type: Array,
             required: true,
         },
     },
