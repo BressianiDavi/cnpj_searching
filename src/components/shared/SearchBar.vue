@@ -1,10 +1,9 @@
 <template>
     <v-card class="mx-auto vcard" width="40rem" style="margin-top: -2rem;">
         <v-toolbar flat>
-            <form action="" @submit="cnpjSearch($event)">
+            <form style="width: 100%;" action="" @submit="cnpjSearch($event)">
                 <v-text-field
                     label="CNPJ"
-                    max-width="25rem"
                     style="margin-top: 5vh;"
                     v-model="cnpj"
                     v-mask="'##.###.###/####-##'"
@@ -12,7 +11,7 @@
                 ></v-text-field>
             </form>
 
-            <v-btn icon>
+            <v-btn @click="cnpjSearch()" icon>
                 <v-icon>mdi-magnify</v-icon>
             </v-btn>
         </v-toolbar>
@@ -30,8 +29,10 @@ export default {
     },
 
     methods: {
-        cnpjSearch(e) {
-            e.preventDefault();
+        cnpjSearch(event) {
+            if (event) {
+                event.preventDefault();
+            }
 
             this.$router.push({
                 path: "/results",
