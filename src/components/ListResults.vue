@@ -6,8 +6,8 @@
             <div class="my-4 text-subtitle-1 " v-if="cnpjData.nome">Nome da Empresa: {{ cnpjData.nome }}</div>
             <div class="my-4 text-subtitle-1 " v-else>Nome da Empresa: --</div>
 
-            <div class="my-4 text-subtitle-1 " v-if="cnpjData.atividade_principal.text">
-                Atividade Principal: {{ cnpjData.atividade_principal.text }}
+            <div class="my-4 text-subtitle-1 " v-if="cnpjData.atividade_principal[0]">
+                Atividade Principal: {{ cnpjData.atividade_principal[0].text }}
             </div>
             <div class="my-4 text-subtitle-1 " v-else>
                 Atividade Principal: --
@@ -18,8 +18,8 @@
             <div class="my-4 text-subtitle-1 " v-if="cnpjData.tipo">Tipo: {{ cnpjData.tipo }}</div>
             <div class="my-4 text-subtitle-1 " v-else>Tipo: --</div>
 
-            <div class="my-4 text-subtitle-1 " v-if="cnpjData.atividades_secundarias.text">
-                Atividades Secundárias: {{ cnpjData.atividades_secundarias.text }}
+            <div class="my-4 text-subtitle-1 " v-if="cnpjData.atividades_secundarias[0]">
+                Atividades Secundárias: {{ cnpjData.atividades_secundarias[0].text }}
             </div>
             <div class="my-4 text-subtitle-1 " v-else>
                 Atividades Secundárias: --
@@ -67,6 +67,7 @@ export default {
 
     props: {
         cnpjData: {
+            type: Array,
             required: true,
         },
     },

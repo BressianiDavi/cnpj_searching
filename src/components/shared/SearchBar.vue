@@ -33,9 +33,12 @@ export default {
         cnpjSearch(e) {
             e.preventDefault();
 
-            const cnpj = this.cnpj;
-
-            console.log("enviado", cnpj);
+            this.$router.push({
+                path: "/results",
+                query: {
+                    cnpj: this.cnpj.replace(/\D/g, ""),
+                },
+            });
         },
     },
 };

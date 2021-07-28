@@ -20,7 +20,8 @@ export default {
     },
 
     created() {
-        jsonp("https://www.receitaws.com.br/v1/cnpj/04890965000158", null, (error, data) => {
+        console.log("created", this.$route.query);
+        jsonp("https://www.receitaws.com.br/v1/cnpj/" + this.$route.query.cnpj, null, (error, data) => {
             if (error) {
                 console.error("error on created results page", error);
                 this.cnpjResults = [];
