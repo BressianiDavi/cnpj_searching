@@ -1,6 +1,7 @@
 <template>
     <v-app>
-        <Header :cnpj="cnpjResults" />
+        <Header />
+        <SearchBar />
         <v-main>
             <router-view />
         </v-main>
@@ -9,25 +10,13 @@
 
 <script>
 import Header from "./components/shared/Header";
+import SearchBar from "./components/shared/SearchBar";
 
 export default {
     name: "App",
     components: {
         Header,
-    },
-
-    data() {
-        return {
-            cnpjResults: [],
-        };
-    },
-
-    created() {
-        fetch("https://www.receitaws.com.br/v1/cnpj/09221413000170")
-            .then((response) => response.json())
-            .then((json) => {
-                this.cnpjResults = json;
-            });
+        SearchBar,
     },
 };
 </script>
