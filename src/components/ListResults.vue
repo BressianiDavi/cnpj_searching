@@ -1,5 +1,6 @@
 <template>
     <v-card class="mx-auto vcard" width="40rem" style="margin-top: 3rem;">
+        
         <v-divider></v-divider>
 
         <v-card-text>
