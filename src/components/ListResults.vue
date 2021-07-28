@@ -1,7 +1,5 @@
 <template>
     <v-card class="mx-auto vcard" width="40rem" style="margin-top: 3rem;">
-        <v-divider></v-divider>
-
         <v-card-text>
             <div class="my-4 text-subtitle-1 " v-if="cnpjData.nome">Nome da Empresa: {{ cnpjData.nome }}</div>
             <div class="my-4 text-subtitle-1 " v-else>Nome da Empresa: --</div>
@@ -19,6 +17,11 @@
 
             <div class="my-4 text-subtitle-1 " v-if="cnpjData.tipo">Tipo: {{ cnpjData.tipo }}</div>
             <div class="my-4 text-subtitle-1 " v-else>Tipo: --</div>
+
+            <div class="my-4 text-subtitle-1 " v-if="cnpjData.capital_social">
+                Capital Social: {{ cnpjData.capital_social }}
+            </div>
+            <div class="my-4 text-subtitle-1 " v-else>Capital Social: Não informado</div>
 
             <div class="my-4 text-subtitle-1 " v-if="cnpjData.atividades_secundarias">
                 <p v-for="(atividade, index) of cnpjData.atividades_secundarias" :key="atividade.text">
@@ -64,8 +67,6 @@ export default {
         cnpjData: {
             required: true,
         },
-
-        loading: {},
     },
     data() {
         return {
@@ -75,9 +76,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.endereco {
-    display: flex;
-    padding: 0 0 0 0;
-}
-</style>
+<style scoped></style>
