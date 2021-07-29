@@ -1,7 +1,7 @@
 <template>
     <v-card class="mx-auto vcard" width="40rem" style="margin-top: -2rem;">
         <v-toolbar flat>
-            <form style="width: 100%;" action="" @submit="cnpjSearch($event)">
+            <form style="width: 100%;" @submit="cnpjSearch($event)">
                 <v-text-field
                     label="CNPJ"
                     style="margin-top: 5vh;"
