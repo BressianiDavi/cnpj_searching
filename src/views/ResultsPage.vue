@@ -17,6 +17,8 @@ import ListResults from "../components/ListResults";
 import jsonp from "jsonp";
 import Loader from "../components/Loader";
 
+const CACHE_KEY = "CACHE_KEY";
+
 export default {
     name: "ResultsPage",
 
@@ -34,13 +36,25 @@ export default {
     },
 
     created() {
+        const cache = JSON.parse(sessionStorage.getItem(CACHE_KEY)) || {};
+        const cnpj = this.$route.query.cnpj;
+
+        if (cache[cnpj]) {
+            this.cnpjResults = cache[cnpj];
+
+            return;
+        }
+
         this.isLoading = true;
-        jsonp("https://www.receitaws.com.br/v1/cnpj/" + this.$route.query.cnpj, { timeout: 5000 }, (error, data) => {
+        jsonp("https://www.receitaws.com.br/v1/cnpj/" + cnpj, { timeout: 5000 }, (error, data) => {
             if (error) {
                 console.error("error on created results page", error);
                 this.cnpjResults = [];
             } else {
                 this.cnpjResults = data;
+                cache[cnpj] = data;
+
+                sessionStorage.setItem(CACHE_KEY, JSON.stringify(cache));
             }
             this.isLoading = false;
             this.hasError = error;
