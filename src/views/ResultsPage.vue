@@ -35,19 +35,15 @@ export default {
 
     created() {
         this.isLoading = true;
-        jsonp("https://www.receitaws.com.br/v1/cnpj/" + this.$route.query.cnpj, null, (error, data) => {
+        jsonp("https://www.receitaws.com.br/v1/cnpj/" + this.$route.query.cnpj, { timeout: 5000 }, (error, data) => {
             if (error) {
                 console.error("error on created results page", error);
-                window.alert(
-                    "Falha ao buscar informações no servidor, aguarde alguns minutos e tente novamente",
-                    error
-                );
-                this.hasError = true;
                 this.cnpjResults = [];
             } else {
                 this.cnpjResults = data;
             }
             this.isLoading = false;
+            this.hasError = error;
         });
     },
 };
