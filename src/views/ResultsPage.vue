@@ -7,7 +7,7 @@
             >
         </div>
         <div v-else>
-            <ListResults :cnpjData="cnpjResults" />
+            <div><ListResults :cnpjData="cnpjResults" /></div>
         </div>
     </div>
 </template>
@@ -35,15 +35,27 @@ export default {
         };
     },
 
+    //life cicle hook : Executado sempre que o component é criado
+
     created() {
         const cache = JSON.parse(sessionStorage.getItem(CACHE_KEY)) || {};
+        const cnpjStorage = JSON.parse(localStorage.getItem("cnpjStorage")) || {};
+
         const cnpj = this.$route.query.cnpj;
+
+        if (cnpjStorage[cnpj]) {
+            this.cnpjResults = cnpjStorage[cnpj];
+
+            return;
+        }
 
         if (cache[cnpj]) {
             this.cnpjResults = cache[cnpj];
 
             return;
         }
+
+        // TODO:localStorage
 
         this.isLoading = true;
         jsonp("https://www.receitaws.com.br/v1/cnpj/" + cnpj, { timeout: 5000 }, (error, data) => {
@@ -53,6 +65,9 @@ export default {
             } else {
                 this.cnpjResults = data;
                 cache[cnpj] = data;
+                cnpjStorage[cnpj] = data;
+
+                localStorage.setItem("cnpjStorage", JSON.stringify(cnpjStorage));
 
                 sessionStorage.setItem(CACHE_KEY, JSON.stringify(cache));
             }
