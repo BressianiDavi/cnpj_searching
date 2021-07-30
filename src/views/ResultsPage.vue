@@ -39,15 +39,11 @@ export default {
 
     created() {
         const cache = JSON.parse(sessionStorage.getItem(CACHE_KEY)) || {};
-        const cnpjStorage = JSON.parse(localStorage.getItem("cnpjStorage")) || {};
+        const history = JSON.parse(localStorage.getItem("history")) || [];
 
         const cnpj = this.$route.query.cnpj;
 
-        if (cnpjStorage[cnpj]) {
-            this.cnpjResults = cnpjStorage[cnpj];
-
-            return;
-        }
+        localStorage.setItem("history", JSON.stringify([...history, { cnpj, date: new Date().getTime() }]));
 
         if (cache[cnpj]) {
             this.cnpjResults = cache[cnpj];
@@ -55,9 +51,8 @@ export default {
             return;
         }
 
-        // TODO:localStorage
-
         this.isLoading = true;
+
         jsonp("https://www.receitaws.com.br/v1/cnpj/" + cnpj, { timeout: 5000 }, (error, data) => {
             if (error) {
                 console.error("error on created results page", error);
@@ -65,9 +60,6 @@ export default {
             } else {
                 this.cnpjResults = data;
                 cache[cnpj] = data;
-                cnpjStorage[cnpj] = data;
-
-                localStorage.setItem("cnpjStorage", JSON.stringify(cnpjStorage));
 
                 sessionStorage.setItem(CACHE_KEY, JSON.stringify(cache));
             }
