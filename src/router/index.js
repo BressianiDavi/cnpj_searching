@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import ResultsPage from "../views/ResultsPage.vue";
+import HistoryPage from "../views/HistoryPage";
 
 Vue.use(VueRouter);
 
@@ -11,10 +12,17 @@ const routes = [
         name: "Home",
         component: Home,
     },
+
     {
         path: "/results",
         name: "Results",
         component: ResultsPage,
+    },
+
+    {
+        path: "/history",
+        name: "HistoryPage",
+        component: HistoryPage,
     },
 ];
 
