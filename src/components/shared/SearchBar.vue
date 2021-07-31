@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto vcard" width="40rem" style="margin-top: -2rem;">
+    <Card>
         <v-toolbar flat>
             <form style="width: 100%;" @submit="cnpjSearch($event)">
                 <v-text-field
@@ -15,12 +15,18 @@
                 <v-icon>mdi-magnify</v-icon>
             </v-btn>
         </v-toolbar>
-    </v-card>
+    </Card>
 </template>
 
 <script>
+import Card from "./Card";
+
 export default {
     name: "SearchBar",
+
+    components: {
+        Card,
+    },
 
     data() {
         return {

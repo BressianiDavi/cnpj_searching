@@ -1,17 +1,23 @@
 <template>
     <div>
         <div v-for="item of history" :key="item.date">
-            <v-card class="mx-auto vcard" width="40rem" style="margin-top: 3rem; padding: 1rem"
+            <Card
                 ><div style="font-size: 1.5rem">{{ formatCnpj(item.cnpj) }}</div>
                 <div class="grey--text mb-2">Pesquisa feita em: {{ item.date }}</div>
-            </v-card>
+            </Card>
         </div>
     </div>
 </template>
 
 <script>
+import Card from "./shared/Card";
+
 export default {
     name: "History",
+
+    components: {
+        Card,
+    },
 
     data() {
         return {

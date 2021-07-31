@@ -1,17 +1,23 @@
 <template>
     <div>
-        <v-card class="mx-auto vcard" width="40rem" style="margin-top: 3rem;">
+        <Card>
             <v-skeleton-loader
                 v-bind="attrs"
                 type="list-item-three-line,list-item-three-line,list-item-three-line,list-item-three-line,list-item-three-line,list-item-three-line"
             ></v-skeleton-loader
-        ></v-card>
+        ></Card>
     </div>
 </template>
 
 <script>
+import Card from "./shared/Card";
+
 export default {
     name: "Loader",
+
+    components: {
+        Card,
+    },
 
     data: () => ({
         attrs: {
@@ -23,4 +29,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

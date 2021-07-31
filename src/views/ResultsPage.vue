@@ -2,9 +2,7 @@
     <div>
         <div v-if="isLoading"><Loader /></div>
         <div v-else-if="hasError">
-            <v-card class="mx-auto vcard" width="40rem" style="margin-top: 3rem;">
-                Falha ao as buscar informações no servidor, tente novamente em alguns minutos.</v-card
-            >
+            <Card> Falha ao as buscar informações no servidor, tente novamente em alguns minutos.</Card>
         </div>
         <div v-else>
             <div><ListResults :cnpjData="cnpjResults" /></div>
@@ -16,6 +14,7 @@
 import ListResults from "../components/ListResults";
 import jsonp from "jsonp";
 import Loader from "../components/Loader";
+import Card from "../components/shared/Card";
 
 const CACHE_KEY = "CACHE_KEY";
 
@@ -25,6 +24,7 @@ export default {
     components: {
         ListResults,
         Loader,
+        Card,
     },
 
     data() {

@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto vcard" width="40rem" style="margin-top: 3rem;">
+    <Card>
         <v-card-text>
             <div v-if="cnpjData.message">
                 {{ cnpjData.message }}
@@ -59,14 +59,20 @@
 
                 <div class="my-4 text-subtitle-1 " v-if="cnpjData.cep">CEP: {{ cnpjData.cep }}</div>
                 <div class="my-4 text-subtitle-1 " v-else>CEP: --</div>
-            </div>  
+            </div>
         </v-card-text>
-    </v-card>
+    </Card>
 </template>
 
 <script>
+import Card from "./shared/Card"
+
 export default {
     name: "ListResults",
+
+    components: {
+        Card
+    },
 
     props: {
         cnpjData: {
