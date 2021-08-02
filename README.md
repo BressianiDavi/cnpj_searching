@@ -14,7 +14,7 @@ Todas as informações foram garantidas através de verificações com o JavaScr
 #
 Foram utilizadas as funções do sessionStorage para criação de um cache de requisições, e o localStorage para a criação de um histórico.
 #
-Também foi usado a biblioteca date-fns para formatação da data para pt-BR.
+Foi feito o uso da biblioteca date-fns para formatação da data para pt-BR.
 
 ## Project setup
 ```
