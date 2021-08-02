@@ -3,9 +3,11 @@
         <div v-if="history.length > 0">
             <div v-for="item of history" :key="item.date">
                 <Card
-                    ><div style="font-size: 1.5rem">{{ formatCnpj(item.cnpj) }}</div>
-                    <div class="grey--text mb-2">Pesquisa feita em: {{ item.date | date }}</div>
-                </Card>
+                    ><a @click="cnpjSearch(item.cnpj)">
+                        <div style="font-size: 1.5rem">{{ formatCnpj(item.cnpj) }}</div>
+                        <div class="grey--text mb-2">Pesquisa feita em: {{ item.date | date }}</div>
+                    </a></Card
+                >
             </div>
         </div>
 
@@ -51,8 +53,16 @@ export default {
                 lastTwoDigits
             );
         },
-    },
 
+        cnpjSearch(cnpjHistory) {
+            this.$router.push({
+                path: "/results",
+                query: {
+                    cnpj: cnpjHistory,
+                },
+            });
+        },
+    },
     created() {
         this.history = JSON.parse(localStorage.getItem("history"))?.reverse() || [];
     },
