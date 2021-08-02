@@ -1,10 +1,16 @@
 <template>
     <div>
-        <div v-for="item of history" :key="item.date">
-            <Card
-                ><div style="font-size: 1.5rem">{{ formatCnpj(item.cnpj) }}</div>
-                <div class="grey--text mb-2">Pesquisa feita em: {{ item.date }}</div>
-            </Card>
+        <div v-if="history.length > 0">
+            <div v-for="item of history" :key="item.date">
+                <Card
+                    ><div style="font-size: 1.5rem">{{ formatCnpj(item.cnpj) }}</div>
+                    <div class="grey--text mb-2">Pesquisa feita em: {{ item.date | date }}</div>
+                </Card>
+            </div>
+        </div>
+
+        <div v-else>
+            <Card style="padding: 1rem"> Faça sua primeira pesquisa na barra acima</Card>
         </div>
     </div>
 </template>
@@ -48,7 +54,7 @@ export default {
     },
 
     created() {
-        this.history = JSON.parse(localStorage.getItem("history")) || [];
+        this.history = JSON.parse(localStorage.getItem("history"))?.reverse() || [];
     },
 };
 </script>
