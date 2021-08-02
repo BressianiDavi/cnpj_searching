@@ -1,10 +1,7 @@
 <template>
     <Card>
         <v-card-text>
-            <div v-if="cnpjData.message">
-                {{ cnpjData.message }}
-            </div>
-            <div v-else>
+            <div>
                 <div class="my-4 text-subtitle-1 " v-if="cnpjData.nome">Nome da Empresa: {{ cnpjData.nome }}</div>
                 <div class="my-4 text-subtitle-1 " v-else>Nome da Empresa: --</div>
 
@@ -65,13 +62,13 @@
 </template>
 
 <script>
-import Card from "./shared/Card"
+import Card from "./shared/Card";
 
 export default {
     name: "ListResults",
 
     components: {
-        Card
+        Card,
     },
 
     props: {

@@ -1,10 +1,12 @@
 <template>
     <v-card flat>
         <v-toolbar color="primary" dark extended flat>
-            <h1 style="font-size: 2rem">
-                Consulta de CNPJ
-            </h1>
-            <div class="icons">
+            <v-row xs>
+                <h1 style="font-size: 2rem">
+                    Consulta de CNPJ
+                </h1>
+            </v-row>
+            <v-row class="icons">
                 <router-link to="/">
                     <v-list-item>
                         <v-list-item-icon>
@@ -22,7 +24,7 @@
                         <v-list-item-title>History</v-list-item-title>
                     </v-list-item>
                 </router-link>
-            </div>
+            </v-row>
         </v-toolbar>
     </v-card>
 </template>
@@ -42,5 +44,6 @@ h1 {
     display: flex;
     width: 80%;
     justify-content: flex-end;
+    margin-top: 2rem;
 }
 </style>

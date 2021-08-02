@@ -35,8 +35,6 @@ export default {
         };
     },
 
-    //life cicle hook : Executado sempre que o component é criado
-
     created() {
         const cache = JSON.parse(sessionStorage.getItem(CACHE_KEY)) || {};
         const history = JSON.parse(localStorage.getItem("history")) || [];
