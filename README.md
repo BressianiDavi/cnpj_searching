@@ -8,7 +8,7 @@ Este projeto foi iniciado com o VueJS e suas ferramentas, sendo o Vuetify para a
 # 
 As informações foram retiradas da API Receita WS: receitaws.com.br
 #
-Para a leitura das informações, devido a política de navegação, não foi possível pegar as informações diretamente do servidor da receitaWS, por isso foi necessário a utilização da lib JsonP, que é uma forma de comunicação com o servidor através de um callBack, executando uma função e devolvendo a resposta sendo ela um erro ou um dado.
+Para a leitura das informações, devido a política de navegação, não foi possível requisita-las diretamente do servidor da receitaWS, por isso foi necessário a utilização da lib JsonP, que é uma forma de comunicação com o servidor através de um callBack, executando uma função e devolvendo a resposta sendo ela um erro ou um dado.
 #
 Todas as informações foram garantidas através de verificações com o JavaScript, exibindo todos os erros caso alguma informação não seja exibida e evitando requisições desnecessárias na API quando as informações são inválidas.
 #
