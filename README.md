@@ -12,7 +12,7 @@ Para a leitura das informações, devido a política de navegação, não foi po
 #
 Todas as informações foram garantidas através de verificações com o JavaScript, exibindo todos os erros caso alguma informação não seja exibida e evitando requisições desnecessárias na API quando as informações são inválidas.
 #
-Foi utilizada a função do sessionStorage para criação de um sistema de cache, evitando assim requições repetidas e economizando recursos do servidor. e o localStorage para a criação de um histórico.
+Foi utilizada a função do sessionStorage para criação de um sistema de cache, evitando assim requições repetidas e economizando recursos do servidor.
 #
 Também foi utilizado o localStorage para criar um sistema de histórico, guardando assim as informações sobre as requisições feitas anteriormente, podendo assim retornar à elas apenas clicando e carregando essa informação do cache.
 #
