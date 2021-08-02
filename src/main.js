@@ -6,7 +6,7 @@ import { createDateFilter } from "vue-date-fns";
 import { pt } from "date-fns/locale";
 
 Vue.config.productionTip = false;
-Vue.filter("date", createDateFilter("dd 'de' MMMM 'de' yyyy 'as' HH:mm", { locale: pt }));
+Vue.filter("date", createDateFilter("dd 'de' MMMM 'de' yyyy 'as' HH:mm:ss", { locale: pt }));
 
 new Vue({
     vuetify,
