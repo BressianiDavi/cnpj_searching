@@ -1,21 +1,26 @@
 <template>
-    <Card style="margin-top: -2.5rem">
-        <v-toolbar flat>
-            <form style="width: 100%;" @submit="cnpjSearch($event)">
-                <v-text-field
-                    label="CNPJ"
-                    style="margin-top: 5vh;"
-                    v-model="cnpj"
-                    v-mask="'##.###.###/####-##'"
-                    regular
-                ></v-text-field>
-            </form>
+    <div>
+        <Card style="margin-top: -2.5rem">
+            <v-toolbar flat>
+                <form style="width: 100%;" @submit="cnpjSearch($event)">
+                    <v-text-field
+                        label="CNPJ"
+                        style="margin-top: 5vh;"
+                        v-model="cnpj"
+                        v-mask="'##.###.###/####-##'"
+                        regular
+                    ></v-text-field>
+                </form>
 
-            <v-btn @click="cnpjSearch()" icon>
-                <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-        </v-toolbar>
-    </Card>
+                <v-btn @click="cnpjSearch()" icon>
+                    <v-icon>mdi-magnify</v-icon>
+                </v-btn>
+            </v-toolbar>
+            <Card v-if="hasError">
+                Digite um cnpj válido
+            </Card>
+        </Card>
+    </div>
 </template>
 
 <script>
@@ -31,6 +36,7 @@ export default {
     data() {
         return {
             cnpj: "",
+            hasError: false,
         };
     },
 
@@ -41,10 +47,11 @@ export default {
             }
 
             if (!this.validateCnpj(this.cnpj)) {
-                window.alert("cnpj inválido");
+                this.hasError = true;
 
                 return;
             }
+            this.hasError = false;
 
             this.$router.push({
                 path: "/results",
