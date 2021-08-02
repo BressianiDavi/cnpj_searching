@@ -16,6 +16,8 @@ Foram utilizadas as funções do sessionStorage para criação de um cache de re
 #
 Foi feito o uso da biblioteca date-fns para formatação da data para pt-BR.
 
+##
+
 ## Project setup
 ```
 npm install
