@@ -1,5 +1,5 @@
 <template>
-    <Card>
+    <Card style="margin-top: -2.5rem">
         <v-toolbar flat>
             <form style="width: 100%;" @submit="cnpjSearch($event)">
                 <v-text-field

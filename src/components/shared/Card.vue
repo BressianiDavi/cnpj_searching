@@ -8,4 +8,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.vcard {
+    padding: 0.5rem;
+}
+</style>
