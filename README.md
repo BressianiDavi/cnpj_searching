@@ -1,13 +1,13 @@
 # Desafio Técnico, processo seletivo da WeDecode - CNPJ search 
 Este projeto é implantado automaticamente na Vercel através de CI/CD: https://cnpj-searching.vercel.app/#/
 
-O cnpj searching foi criado com o intuito de realizar o desafio técnico proposto pela empresa WeDecode durante o processo de seleção.
-Este projeto foi iniciado com o VueJS e suas ferramentas, sendo o Vuetify para as estilizações e o Vue Router para controle de rotas, além do uso da lib V-Mask para mascarar os campos de texto.
-As informações foram retiradas da API Receita WS: receitaws.com.br
-Para a leitura das informações, devido a política de navegação, não foi possível pegar as informações diretamente do servidor da receitaWS, por isso foi necessário a utilização da lib JsonP, que é uma forma de comunicação com o servidor através de um callBack, executando uma função e devolvendo a resposta sendo ela um erro ou um dado.
-Todas as informações foram garantidas através de verificações com o JavaScript, exibindo todos os erros caso alguma informação não seja exibida e evitando requisições desnecessárias na API quando as informações são inválidas.
-Foram utilizadas as funções do sessionStorage para criação de um cache de requisições, e o localStorage para a criação de um histórico.
-Também foi usado a biblioteca date-fns para formatação da data para pt-BR.
+# O cnpj searching foi criado com o intuito de realizar o desafio técnico proposto pela empresa WeDecode durante o processo de seleção.
+# Este projeto foi iniciado com o VueJS e suas ferramentas, sendo o Vuetify para as estilizações e o Vue Router para controle de rotas, além do uso da lib V-Mask para mascarar os campos de texto.
+# As informações foram retiradas da API Receita WS: receitaws.com.br
+# Para a leitura das informações, devido a política de navegação, não foi possível pegar as informações diretamente do servidor da receitaWS, por isso foi necessário a utilização da lib JsonP, que é uma forma de comunicação com o servidor através de um callBack, executando uma função e devolvendo a resposta sendo ela um erro ou um dado.
+# Todas as informações foram garantidas através de verificações com o JavaScript, exibindo todos os erros caso alguma informação não seja exibida e evitando requisições desnecessárias na API quando as informações são inválidas.
+# Foram utilizadas as funções do sessionStorage para criação de um cache de requisições, e o localStorage para a criação de um histórico.
+# Também foi usado a biblioteca date-fns para formatação da data para pt-BR.
 
 ## Project setup
 ```
